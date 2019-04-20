@@ -20,7 +20,7 @@ def capture_photos():
 
 	options = Options()
 	options.headless = True
-	driver = webdriver.Firefox(options=options)
+	driver = webdriver.Chrome(options=options)
 
 	for url, pic in WEBCAMS.items():
 		print("%s: capturing..." % url)
@@ -49,10 +49,8 @@ def capture_photos():
 
 
 def main():
-	vdisplay = Xvfb()
-	vdisplay.start()
-	capture_photos()
-	vdisplay.stop()
+	with Xvfb(width=1920, height=1080) as xvfb:
+		capture_photos()
 
 if __name__ == "__main__":
 	main()
