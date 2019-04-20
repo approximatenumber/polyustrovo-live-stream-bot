@@ -1,0 +1,4 @@
+selenium==3.14.1
+telegram-send==0.20
+Pillow==5.1.0
+xvfbwrapper==0.2.9
